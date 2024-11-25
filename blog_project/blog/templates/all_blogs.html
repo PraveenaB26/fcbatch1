@@ -1,0 +1,13 @@
+<h2>All Blogs</h2>
+<ul>
+    {% for blog in blogs %}
+        <li>
+            <h3>{{ blog.title }}</h3>
+            <p>by {{ blog.author.username }} on {{ blog.created_at|date:"Y-m-d H:i:s" }}</p>
+            <p>{{ blog.content }}</p>
+            {% if blog.author == request.user %}
+                <a href="{% url 'edit_blog' blog.id %}">Edit</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

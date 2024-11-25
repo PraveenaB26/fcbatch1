@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Add Task</title></head>
+<body>
+    <h2>Add New Task</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label>Task Name:</label>
+        <input type="text" name="name" required><br>
+        <label>Date & Time:</label>
+        <input type="datetime-local" name="date_time" required><br>
+        <label>Assign To:</label>
+        <select name="assigned_to" required>
+            {% for user in users %}
+                <option value="{{ user.id }}">{{ user.username }}</option>
+            {% endfor %}
+        </select><br>
+        <button type="submit">Add Task</button>
+    </form>
+</body>
+</html>
