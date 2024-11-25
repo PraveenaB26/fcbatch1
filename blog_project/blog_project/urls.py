@@ -24,5 +24,5 @@ urlpatterns = [
     #path('', include('blog.urls')),  # include blog app URLs
     path('', include('task.urls')),
 ]
-
+#path('', include('task.urls')),
 
